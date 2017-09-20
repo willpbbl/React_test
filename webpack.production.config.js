@@ -28,11 +28,5 @@ module.exports = {
         'NODE_ENV': JSON.stringify('production')
       }
     }),
-    new HtmlWebpackPlugin({
-      template : './index.html',
-      hash     : false,
-      filename : 'index.html',
-      inject   : false
-    }),
   ],
 };
