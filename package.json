@@ -9,7 +9,8 @@
     "build": "webpack --config webpack.production.config.js -p && cp style/style.css dist/style/style.css",
     "deploy": "gh-pages -d dist",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "heroku-postbuild": "webpack --config webpack.config.prod.js"
   },
   "author": "",
   "license": "ISC",
