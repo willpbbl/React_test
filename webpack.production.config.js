@@ -1,5 +1,5 @@
 var webpack = require('webpack');
-
+process.traceDeprecation = true;
 module.exports = {
   entry: [
     './src/index.js'
