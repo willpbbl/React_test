@@ -1,33 +1,39 @@
-var webpack = require('webpack');
+var webpack = require("webpack");
 
+const path = require('path');
 module.exports = {
-  entry: [
-    './src/index.js'
-  ],
+  context: __dirname,
+  entry: './src/index.js',
   output: {
-    path: __dirname,
-    publicPath: '/',
+    path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
     filename: 'bundle.js'
   },
-  module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader',
-      query: {
-        presets: ['react', 'es2015', 'stage-1']
+  plugins:[
+  new webpack.DefinePlugin({
+    'process.env':{
+      'NODE_ENV': JSON.stringify('production')
+    }
+  }),
+  new webpack.optimize.UglifyJsPlugin({
+    compress:{
+      warnings: true
       }
-    }]
-  },
-  resolve: {
-    extensions: ['.js', '.jsx']
-  },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('production'),
-        'API_HOST': 'https://react-test-pp.herokuapp.com/'
-      }
-    }),
+    })
   ],
+  resolve: {
+    extensions: ['.js', '.jsx', '*']
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['react', 'es2015']
+        }
+      }
+    ]
+  },
+  devtool: 'source-maps'
 };
