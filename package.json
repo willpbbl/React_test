@@ -6,7 +6,8 @@
   "repository": "git@github.com:willpbbl/React_test.git",
   "scripts": {
     "start": "node ./src/index.js",
-    "heroku-postbuild": "webpack --config webpack.production.config.js"
+    "heroku-postbuild": "webpack --config webpack.production.config.js",
+    "postinstall": "webpack"
   },
   "author": "",
   "license": "ISC",
