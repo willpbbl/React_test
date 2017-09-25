@@ -5,6 +5,9 @@
   "main": "index.js",
   "repository": "git@github.com:willpbbl/React_test.git",
   "scripts": {
+    "start": "NODE_ENV=development react-server start",
+    "start-beta": "NODE_ENV=beta react-server start",
+    "start-prod": "NODE_ENV=production react-server start",
     "heroku-postbuild": "webpack --config webpack.production.config.js",
     "postinstall": "webpack"
   },
